@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Predictor</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 50px; text-align: center;">
+
+    <h2>🚗 Predict Your Car's Selling Price</h2>
+    
+    <form action="{{ url_for('predict')}}" method="post" style="display: inline-block; text-align: left; background: #f4f4f4; padding: 20px; border-radius: 10px;">
+        
+        <label>Showroom Price (In Lakhs):</label><br>
+        <input type="text" name="Present_Price" required><br><br>
+
+        <label>Kilometers Driven:</label><br>
+        <input type="text" name="Kms_Driven" required><br><br>
+
+        <label>Number of Previous Owners:</label><br>
+        <input type="number" name="Owner" value="0" required><br><br>
+
+        <label>Years Since Manufacture (e.g., 5):</label><br>
+        <input type="number" name="Years_Since_Manufacture" required><br><br>
+
+        <label>Fuel Type:</label><br>
+        <select name="Fuel_Type" required>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="CNG">CNG</option>
+        </select><br><br>
+
+        <label>Seller Type:</label><br>
+        <select name="Seller_Type" required>
+            <option value="Dealer">Dealer</option>
+            <option value="Individual">Individual</option>
+        </select><br><br>
+
+        <label>Transmission Type:</label><br>
+        <select name="Transmission" required>
+            <option value="Manual">Manual</option>
+            <option value="Automatic">Automatic</option>
+        </select><br><br>
+
+        <button type="submit" style="background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Predict Price</button>
+    </form>
+
+    <br><br>
+    <h3>{{ prediction_text }}</h3>
+
+</body>
+</html>
